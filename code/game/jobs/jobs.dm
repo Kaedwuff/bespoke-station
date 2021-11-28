@@ -44,11 +44,11 @@ var/const/CARGOTECH			=(1<<7)
 var/const/MINER				=(1<<8)
 var/const/LAWYER			=(1<<9)
 var/const/CHAPLAIN			=(1<<10)
-var/const/VISITOR			=(1<<11)
+var/const/LOCAL			=(1<<11)
 var/const/CONSULAR			=(1<<12)
 var/const/MERCHANT			=(1<<13)
 var/const/JOURNALIST		=(1<<14)
-var/const/ASSISTANT			=(1<<15)
+var/const/TOURIST			=(1<<15)
 
 
 var/list/command_positions = list(

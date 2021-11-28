@@ -195,7 +195,7 @@
 			continue
 		if(job.alt_titles && (LAZYLEN(pref.GetValidTitles(job)) > 1))
 			dispRank = "<span width='60%' align='center'>&nbsp<a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></span>"
-		if((pref.job_civilian_low & ASSISTANT) && (rank != "Assistant"))
+		if((pref.job_civilian_low & TOURIST) && (rank != "Assistant"))
 			dat += "<span class='none'>[dispRank]</span></td><td></td></tr>"
 			continue
 		if(head)//Bold head jobs
@@ -208,7 +208,7 @@
 		dat += "<a href='?src=\ref[src];set_job=[rank]'>"
 
 		if(rank == "Assistant")//Assistant is special
-			if(pref.job_civilian_low & ASSISTANT)
+			if(pref.job_civilian_low & TOURIST)
 				dat += " <span class='high'>\[Yes]</span>"
 			else
 				dat += " <span class='none'>\[No]</span>"
@@ -230,7 +230,7 @@
 	dat += "</center></table>"
 
 	switch(pref.alternate_option)
-		if(BE_ASSISTANT)
+		if(BE_TOURIST)
 			dat += "<center><br><u><a href='?src=\ref[src];job_alternative=1'>Be assistant if preference unavailable</a></u></center><br>"
 		if(RETURN_TO_LOBBY)
 			dat += "<center><br><u><a href='?src=\ref[src];job_alternative=1'><span class='high'>Return to lobby if preference unavailable</span></a></u></center><br>"
@@ -246,10 +246,10 @@
 		return TOPIC_REFRESH
 
 	else if(href_list["job_alternative"])
-		if(pref.alternate_option == BE_ASSISTANT)
+		if(pref.alternate_option == BE_TOURIST)
 			pref.alternate_option = RETURN_TO_LOBBY
 		else if(pref.alternate_option == RETURN_TO_LOBBY)
-			pref.alternate_option = BE_ASSISTANT
+			pref.alternate_option = BE_TOURIST
 		return TOPIC_REFRESH
 
 	else if(href_list["select_alt_title"])

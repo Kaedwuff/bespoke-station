@@ -1,6 +1,6 @@
 /var/datum/controller/subsystem/jobs/SSjobs
 
-#define BE_ASSISTANT 0
+#define BE_TOURIST 0
 #define RETURN_TO_LOBBY 1
 
 #define Debug(text) if (Debug2) {job_debug += text}
@@ -292,7 +292,7 @@
 
 	// For those who wanted to be assistant if their preferences were filled, here you go.
 	for(var/mob/abstract/new_player/player in unassigned)
-		if(player.client.prefs.alternate_option == BE_ASSISTANT)
+		if(player.client.prefs.alternate_option == BE_TOURIST)
 			Debug("AC2 Assistant located, Player: [player]")
 			AssignRole(player, "Assistant")
 
@@ -391,7 +391,7 @@
 	to_chat(H, "<B>You are [job.get_total_positions() == 1 ? "the" : "a"] [alt_title ? alt_title : rank].</B>")
 
 	if(job.supervisors)
-		to_chat(H, "<b>As [job.intro_prefix] [alt_title ? alt_title : rank] you answer directly to [job.supervisors]. Special circumstances may change this.</b>")
+		to_chat(H, "<b>As a [job.intro_prefix] [alt_title ? alt_title : rank] you are responsible for [job.supervisors]. Special circumstances may change this.</b>")
 
 	//Gives glasses to the vision impaired
 	if(H.disabilities & NEARSIGHTED && !megavend)

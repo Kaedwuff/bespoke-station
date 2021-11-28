@@ -23,7 +23,7 @@
 	title_suffix = "EPMC"
 
 	allowed_role_types = list(
-		/datum/job/visitor,
+		/datum/job/local,
 		/datum/job/officer,
 		/datum/job/warden,
 		/datum/job/investigator,

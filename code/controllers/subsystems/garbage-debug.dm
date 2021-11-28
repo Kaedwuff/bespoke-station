@@ -583,7 +583,7 @@
 	SearchVar(CLOWN)
 	SearchVar(MIME)
 	SearchVar(MERCHANT)
-	SearchVar(ASSISTANT)
+	SearchVar(TOURIST)
 	SearchVar(CONSULAR)
 	SearchVar(command_positions)
 	SearchVar(engineering_positions)

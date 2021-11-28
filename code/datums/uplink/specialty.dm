@@ -1,7 +1,7 @@
 /*
 Quick and easy list of all the occupations for farther expansion and addition.
 
-/datum/job/assistant
+/datum/job/tourist
 /datum/job/captain
 /datum/job/hop
 /datum/job/bartender

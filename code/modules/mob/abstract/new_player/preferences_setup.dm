@@ -200,7 +200,7 @@
 
 	// Determine what job is marked as 'High' priority, and dress them up as such.
 	var/datum/job/previewJob
-	if(job_civilian_low & ASSISTANT)
+	if(job_civilian_low & TOURIST)
 		previewJob = SSjobs.GetJob("Assistant")
 	else
 		previewJob = return_chosen_high_job()

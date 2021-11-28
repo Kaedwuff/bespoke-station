@@ -1,4 +1,4 @@
-#define LOBBY_TIME 180
+#define LOBBY_TIME 31
 
 #define SETUP_OK 0
 #define SETUP_REVOTE 1
@@ -20,7 +20,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/restart_timeout = 1200
 	var/current_state = GAME_STATE_PREGAME
 
-	var/hide_mode = 0
+	var/hide_mode = TRUE
 	var/datum/game_mode/mode = null
 	var/post_game = 0
 
@@ -130,9 +130,10 @@ var/datum/controller/subsystem/ticker/SSticker
 	if (round_progressing)
 		pregame_timeleft--
 
-	if (current_state == GAME_STATE_PREGAME && pregame_timeleft == config.vote_autogamemode_timeleft)
-		if (!SSvote.time_remaining)
-			SSvote.autogamemode()
+	if (current_state == GAME_STATE_PREGAME && pregame_timeleft == config.pause_start_timeleft)
+		if (round_progressing)
+			round_progressing = FALSE
+			to_world("<b>Welcome to the server! Be sure you have your character ready and correctly set up.</b>")
 			pregame_timeleft--
 			return
 
@@ -343,12 +344,13 @@ var/datum/controller/subsystem/ticker/SSticker
 
 /datum/controller/subsystem/ticker/proc/pregame()
 	set waitfor = FALSE
-	sleep(1)	// Sleep so the MC has a chance to update its init time.
+	sleep(1)
 	if (!login_music)
 		login_music = pick(possible_lobby_tracks)
-
+	
+	pregame_timeleft = LOBBY_TIME
+/*
 	if (is_revote)
-		pregame_timeleft = LOBBY_TIME
 		log_debug("SSticker: lobby reset due to game setup failure, using pregame time [LOBBY_TIME]s.")
 	else
 		var/mc_init_time = round(Master.initialization_time_taken, 1)
@@ -360,10 +362,13 @@ var/datum/controller/subsystem/ticker/SSticker
 		else
 			pregame_timeleft = dynamic_time
 			log_debug("SSticker: dynamic set pregame time [dynamic_time]s was greater than configured autogamemode time, not clamping.")
+*/
 
 	to_world("<B><span class='notice'>Welcome to the pre-game lobby!</span></B>")
-	to_world("Please, setup your character and select ready. Game will start in [pregame_timeleft] seconds.")
 	callHook("pregame_start")
+	
+	
+	round_progressing = TRUE
 
 /datum/controller/subsystem/ticker/proc/setup()
 	//Create and announce mode
@@ -442,18 +447,6 @@ var/datum/controller/subsystem/ticker/SSticker
 			return SETUP_REVOTE
 
 	var/starttime = REALTIMEOFDAY
-
-	if(hide_mode)
-		to_world("<B>The current game mode is - [hide_mode == ROUNDTYPE_SECRET ? "Secret" : "Mixed Secret"]!</B>")
-		if(runnable_modes.len)
-			var/list/tmpmodes = new
-			for (var/datum/game_mode/M in runnable_modes)
-				tmpmodes+=M.name
-			tmpmodes = sortList(tmpmodes)
-			if(tmpmodes.len)
-				to_world("<B>Possibilities:</B> [english_list(tmpmodes)]")
-	else
-		src.mode.announce()
 
 	current_state = GAME_STATE_PLAYING
 	create_characters() //Create player characters and transfer them

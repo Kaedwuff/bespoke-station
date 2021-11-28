@@ -310,7 +310,7 @@
 	Debug("ER/([H]): Entry, joined_late=[joined_late],megavend=[megavend].")
 
 	if(SSatlas.current_sector.description)
-		var/sector_desc = "<hr><div align='center'><hr1><B>Current Sector: [SSatlas.current_sector.name]!</B></hr1><br>"
+		var/sector_desc = "<hr><div align='center'><hr1><B>Current Location: [SSatlas.current_sector.name]!</B></hr1><br>"
 		sector_desc += "<i>[SSatlas.current_sector.description]</i><hr></div>"
 		to_chat(H, sector_desc)
 

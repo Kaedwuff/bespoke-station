@@ -7,7 +7,7 @@
 	total_positions = -1
 	spawn_positions = -1
 	intro_prefix = "an"
-	supervisors = "absolutely everyone"
+	supervisors = "only yourself and your possessions"
 	selection_color = "#90524b"
 	economic_modifier = 1
 	access = list()			//See /datum/job/tourist/get_access()
@@ -37,7 +37,7 @@
 	faction = "Station"
 	total_positions = -1
 	spawn_positions = -1
-	supervisors = "any authority figure"
+	supervisors = "maintainining your home keeping yourself safe"
 	selection_color = "#90524b"
 	economic_modifier = 1
 	access = list()

@@ -1,10 +1,10 @@
-//tau ceti sectors
-#define SECTOR_ROMANOVICH			"Romanovich Cloud"
-#define SECTOR_TAU_CETI				"Tau Ceti"
-#define SECTOR_CORP_ZONE			"Corporate Reconstruction Zone"
-#define ALL_TAU_CETI_SECTORS		list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE)
+//basic locations
+#define SECTOR_DESERT   			"Sprawling Desert"
+#define SECTOR_ICYFOREST			"Remote Tundra Town"
+#define SECTOR_CITYSCAPE			"Bustling Metropolis"
+#define ALL_SECTORS		            list(SECTOR_DESERT, SECTOR_ICYFOREST, SECTOR_CITYSCAPE)
 
-//badlands sectors
+//remote sectors
 #define SECTOR_VALLEY_HALE			"Valley Hale"
 #define SECTOR_BADLANDS				"Badlands"
 #define SECTOR_NEW_ANKARA			"New Ankara"
@@ -16,4 +16,4 @@
 #define ALL_BADLAND_SECTORS		list(SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA)
 
 
-#define ALL_POSSIBLE_SECTORS	list(ALL_TAU_CETI_SECTORS, ALL_BADLAND_SECTORS)
+#define ALL_POSSIBLE_SECTORS	list(ALL_SECTORS, ALL_BADLAND_SECTORS)

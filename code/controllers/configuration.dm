@@ -33,6 +33,7 @@ var/list/gamemode_cache = list()
 	var/vote_autotransfer_initial = 108000 // Length of time before the first autotransfer vote is called
 	var/vote_autotransfer_interval = 36000 // length of time before next sequential autotransfer vote
 	var/vote_autogamemode_timeleft = 100 //Length of time before round start when autogamemode vote is called (in seconds, default 100).
+	var/pause_start_timeleft = 26		//The time which the game pauses before starting
 	var/transfer_timeout = 72000		// timeout before a transfer vote can be called (deciseconds, 120 minute default)
 	var/restart_timeout = 1200			// time after round end & admin tickets are resolved until server restarts (deciseconds, 2 minute default)
 	var/vote_no_default = 0				// vote does not default to nochange/norestart (tbi)

@@ -153,7 +153,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 			log_ss("atlas", "-- WARNING: CONFIGURED MAP DOES NOT EXIST, IGNORING! --")
 			. = "runtime"
 	else
-		. = "runtime"
+		. = "runtime" 
 
 /datum/controller/subsystem/atlas/proc/load_map_meta()
 	// This needs to be done after current_map is set, but before mapload.
